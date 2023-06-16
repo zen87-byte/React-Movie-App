@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-function App() {
+const App = () => {
+  const [] = useState([]);
+  useEffect(()=>{
+      axios.get(`${process.env.REACT_APP_BASE_URL}/movie/popular`,{
+        params:{
+          api_key: process.env.REACT_APP_API_KEY
+        }
+      }).then((res) =>{
+        console.log(res);
+      })
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Movie App</h1>
     </div>
   );
-}
+};
 
 export default App;
