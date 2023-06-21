@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Navbar from "../Navbar";
+import Container from "../Container";
+import "../../App.css";
 
 const MovieDetailPage = () => {
   const { id } = useParams();
-  const [movie, setMovie] = useState(null);
+  const [videoPreview, setvideoPreview] = useState(null);
 
   useEffect(() => {
     axios
@@ -14,8 +17,10 @@ const MovieDetailPage = () => {
         },
       })
       .then((res) => {
-        const filteredMovie = res.data.results.find((movie) => movie.id === parseInt(id));
-        setMovie(filteredMovie);
+        const filteredMovie = res.data.results.find(
+          (findVideo) => findVideo.id === parseInt(id)
+        );
+        setvideoPreview(filteredMovie);
         console.log(filteredMovie);
       })
       .catch((error) => {
@@ -23,15 +28,39 @@ const MovieDetailPage = () => {
       });
   }, [id]);
 
-  if (!movie) {
+  if (!videoPreview) {
     return <div>Loading...</div>;
   }
-
+  
   return (
     <div>
-      <h1>{movie.title}</h1>
-      <img src={`${process.env.REACT_APP_POSTER_PATH}${movie.backdrop_path}`} alt={movie.title} />
-      {/* Tambahkan informasi detail lainnya yang ingin ditampilkan */}
+      <Navbar />
+      <div className="wrapper-preview">
+        <div className="backdrop-preview">
+          <img
+            src={`${process.env.REACT_APP_POSTER_PATH}${videoPreview.backdrop_path}`}
+            alt=""
+          />
+        </div>
+        <div className="video-preview">
+          <div className="title-preview">
+              {videoPreview.title}
+            <div className="genre">
+              <span>Action</span>
+              <span>Horror</span>
+              <span>Thriller</span>
+            </div>
+          </div>
+          <div className="detail-preview">
+            <p className="rating">{videoPreview.vote_average}</p>
+            <p>{videoPreview.release_date}</p>
+            <p>{videoPreview.original_language}</p>
+          </div>
+          <div className="sinopsis-preview">{videoPreview.overview}</div>
+          <button className="button-preview">Watch Now</button>
+        </div>
+      </div>
+      <Container category="Related"/>
     </div>
   );
 };

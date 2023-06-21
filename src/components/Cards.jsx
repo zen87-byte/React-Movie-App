@@ -24,7 +24,7 @@ const Cards = () => {
 
   return (
     <>
-      <Carousel itemsToShow={7} data={trending} />
+      <Carousel data={trending} />
     </>
   );
 };
