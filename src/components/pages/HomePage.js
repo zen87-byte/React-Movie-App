@@ -1,14 +1,15 @@
+import React from "react";
 import Navbar from "../Navbar";
 import Container from "../Container";
-import "../../App.css"
+import "../../App.css";
+import FetchData from '../../utils/fetch';
+import ContextComponent from "../ContextComponent";
 
-const HomePage = () =>{
-    return(
+const HomePage = () => {
+    return (
         <div className="wrapper">
-            <Navbar/>
-            <Container category="Trending"/>
-            <Container category="Top Rated"/>
-            <Container category="Recommendation"/>
+            <Navbar />
+            <Container/>
         </div>
     )
 }

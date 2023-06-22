@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { DataContext } from "../utils/fetch";
 
-const Corousel = ({ data }) => {
+const Corousel = () => {
+  const dataVideo = useContext(DataContext);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const handleNextSlide = () => {
     setCurrentSlide((prevSlide) =>
-      prevSlide === data.length - 7 ? 0 : prevSlide + 1
+      prevSlide === dataVideo.length - 7 ? 0 : prevSlide + 1
     );
   };
 
   const handlePrevSlide = () => {
     setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? data.length - 7 : prevSlide - 1
+      prevSlide === 0 ? dataVideo.length - 7 : prevSlide - 1
     );
   };
 
@@ -20,7 +22,7 @@ const Corousel = ({ data }) => {
     <div className="carousel">
       <button className="left-button-carousel" onClick={handlePrevSlide}>&lt;</button>
       <div className="poster-container">
-        {data
+        {dataVideo
           .slice(currentSlide, currentSlide + 7)
           .map((item, index) => (
             <div className="poster-item" key={index}>
