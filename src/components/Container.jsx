@@ -1,44 +1,77 @@
-import FetchData from "../utils/fetch";
-import Corousel from "./Corousel";
-
+import FetchData from "../utils/fetchData";
 import "../App.css";
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { DataContext } from "../utils/fetchData";
 
-const Container = () =>{
+const Corousel = () => {
+  const dataVideo = useContext(DataContext);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+    console.log(dataVideo)
+
+  const handleVisible = () =>{
+    setIsVisible(true);
+  }
+
+  const handleHover = () =>{
+    setIsHovered(true);
+  }
+
+  const handleNotHover = () =>{
+    setIsHovered(false);
+  }
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === dataVideo.length - 6 ? 0 : prevSlide + 1
+    );
+  };
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? dataVideo.length - 6 : prevSlide - 1
+    );
+  };
+
+  return (
+    <div onMouseEnter={handleHover} onMouseLeave={handleNotHover} className="carousel">
+      <button className={`left-button-carousel ${isHovered? `hovered` : ""}`} onClick={handlePrevSlide}>&lt;</button>
+      <div className={`poster-container ${isVisible? `visibleTrue` : ""}`}>
+        {dataVideo
+          .slice(currentSlide, currentSlide + 6)
+          .map((item, index) => (
+            <div className="poster-item" key={index}>
+              <Link to={`/video/${item.id}`}>
+                <img onLoad={handleVisible} src={`${process.env.REACT_APP_POSTER_PATH}${item.poster_path}`} alt={`${item.title}`} />
+              </Link>
+            </div>
+          ))}
+      </div>
+      <button className={`right-button-carousel ${isHovered? `hovered` : ""}`} onClick={handleNextSlide}>&gt;</button>
+    </div>
+  );
+};
+
+const Container = ({ category, endpoint}) =>{
+    const [isHovered, setIsHovered] = useState(false);
+
+    
     return(
         <>        
             <div className="container">
                 <div className="top-container">
-                    <h3>Popular</h3>
-                    <a href="#">View all <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    <h3>{category}</h3>
+                    <Link to={`/all/${category.toLowerCase()}`}><p>View All <i class="fa fa-angle-right" aria-hidden="true"></i></p></Link>
                 </div>
                 <div className="item-container">
-                    <FetchData endpoint="popular">
+                    <FetchData endpoint={`${endpoint}`}>
                         <Corousel/>
                     </FetchData>
                 </div>
-            </div>      
-            <div className="container">
-                <div className="top-container">
-                    <h3>Upcoming</h3>
-                    <a href="#">View all <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                </div>
-                <div className="item-container">
-                    <FetchData endpoint="upcoming">
-                        <Corousel/>
-                    </FetchData>
-                </div>
-            </div>      
-            <div className="container">
-                <div className="top-container">
-                    <h3>Top Rated</h3>
-                    <a href="#">View all <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                </div>
-                <div className="item-container">
-                    <FetchData endpoint="top_rated">
-                        <Corousel/>
-                    </FetchData>
-                </div>
-            </div>         
+            </div>            
         </>
     )
 }

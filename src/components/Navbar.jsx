@@ -1,8 +1,7 @@
 import React from "react";
-import logoImage from "../images/Screenshot_2023-06-19_at_12.26.00-removebg-preview.png";
+import logoImage from "../images/Screenshot_2023-06-23_at_17.11.19-removebg-preview.png";
 import "../App.css"
 import { Outlet, Link } from "react-router-dom";
-import HomePage from "./pages/HomePage";
 
 const Navbar = () =>{
     return(

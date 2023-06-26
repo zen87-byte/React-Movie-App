@@ -8,7 +8,7 @@ const FetchData = ({children, endpoint}) => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/movie/${endpoint}`, {
+      .get(`${process.env.REACT_APP_BASE_URL}${endpoint}`, {
         params: {
           api_key: process.env.REACT_APP_API_KEY,
         },

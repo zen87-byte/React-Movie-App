@@ -1,6 +1,8 @@
-import HomePage from "./components/pages/HomePage";
+import HomePage from "./pages/HomePage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import VideoPreview from "./components/pages/VideoPreview";
+import VideoPreview from "./pages/PreviewPage";
+import VideoPage from "./pages/VideoPage";
+import AllPage from "./pages/AllPage";
 
 const App = () => {
   return (
@@ -8,7 +10,9 @@ const App = () => {
       <BrowserRouter>
         <Routes>          
           <Route exact path="/" Component={HomePage} />
-          <Route path="/movie/:id" Component={VideoPreview}/>
+          <Route path="/video/:id" Component={VideoPreview}/>
+          <Route path="/video/:id/play" Component={VideoPage}/>
+          <Route path="/all/:category" Component={AllPage}/>
         </Routes>
       </BrowserRouter>
     </>

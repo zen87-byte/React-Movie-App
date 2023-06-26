@@ -1,9 +1,9 @@
 :root{
   --primary-background: #0F0F0F;
   --secondary-background: #070707;
-  --primary-color: #6498FA;
-  --secondary-color: #6F81F3;
-  --third-color: #7E61EB;
+  --primary-color: #0F36B9;
+  --secondary-color: #0B75DC;
+  --third-color: #01AEFD;
   --primary-font-color: #E5E5E5;
 
   --font-weight: 700;
@@ -17,6 +17,7 @@
 }
 
 body {
+  behavior: smooth;
   background-color: var(--primary-background);
   color: white;
   margin: 0;

@@ -20,7 +20,7 @@ ul{
 
 ul li:not(:last-child):hover{
   cursor: pointer;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   opacity: 0.7;
 }
 
@@ -46,9 +46,11 @@ ul li:not(:last-child):hover{
 
 /* Container */
 .container {
-  margin: 1rem 6rem;
+  /* margin: 1rem 6rem; */
   overflow: hidden;
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .top-container {
@@ -56,8 +58,6 @@ ul li:not(:last-child):hover{
   justify-content: space-between;
   align-items: center;
   border-left-width: 5px;
-  /* height: fit-content; */
-  /* margin-bottom: 10px; */
 }
 
 .top-container h3{
@@ -82,11 +82,11 @@ ul li:not(:last-child):hover{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: all 0.5s ease-in-out;
   /* position: relative; */
 }
 
 .left-button-carousel{
+  display: none;
   border: none;
   background:transparent;
   height: 200px;
@@ -100,6 +100,7 @@ ul li:not(:last-child):hover{
 }
 
 .right-button-carousel{
+  display: none;
   border: none;
   background:transparent;
   height: 200px;
@@ -115,9 +116,12 @@ ul li:not(:last-child):hover{
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.hovered{
+  display: block;
+}
+
 .poster-container{
   width: 100%;
-  transition: all 0.5s ease-in-out;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -126,20 +130,26 @@ ul li:not(:last-child):hover{
   border-radius: 1rem;
   overflow: hidden;
   transition: 0.25s;
+  /* opacity: 0; */
+  transition: opacity 1s ease-in, transform 1s ease-in;
 }
 
 .poster-item{
-  transition: all 0.5s ease-in-out;
+  width: 225px;
   border-radius: 1rem;
   overflow: hidden;
   transition: 0.25s;
 }
 
 .poster-container img{
-  transition: all 0.5s ease-in-out;
-  width: 200px;
+  width: 100%;
   aspect-ratio: 2/3;
-  transition: 0.25s;
+  /* transform: scale(0.8); */
+}
+
+.poster-container.visibleTrue{
+  opacity: 1;
+  /* transform: scale(1); */
 }
 
 .poster-container img:hover{
@@ -155,11 +165,10 @@ ul li:not(:last-child):hover{
   /* border: 1px solid white; */
   /* opacity: 0; */
   transition: opacity 0.5s ease-in;
-  margin: 4rem 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row-reverse;
+  margin: 2rem 0;
 }
 
 .backdrop-preview{
@@ -177,7 +186,6 @@ ul li:not(:last-child):hover{
   flex-direction: column;
   gap: 1rem;
   width:50%;
-  font-size: 1.5rem;
   max-width: 40%;
 }
 
@@ -192,15 +200,35 @@ ul li:not(:last-child):hover{
   display: flex;
   gap: 1rem;
   font-size: 0.75rem;
+  /* opacity: 0.8; */
+}
+
+.genre h3{
+  background-color: var(--third-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.75rem;
+}
+
+.genre h3:hover{
+  cursor: pointer;
   opacity: 0.8;
 }
 
 .detail-preview{
+  font-size: 1rem;
+  font-weight: 500;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
   width: fit-content;
+}
+
+.detail-preview p:nth-last-child(1){
+  background-color: gray;
+  padding: 0.2rem 0.15rem;
+  border-radius: 0.5rem;
+  opacity: 0.8;
 }
 
 .rating{
@@ -209,6 +237,7 @@ ul li:not(:last-child):hover{
 
 .sinopsis-preview{
   opacity: 0.6;
+  font-size: 1.5rem;
 }
 
 .button-preview{
@@ -217,12 +246,58 @@ ul li:not(:last-child):hover{
   border: none;
   border-radius: 1rem;
   padding: .75rem;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: white;
   font-weight: 700;
 }
 
 .button-preview:hover{
   cursor: pointer;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
+}
+
+.similar{
+  /* width: 100%; */
+  /* margin: 1rem 6rem; */
+  overflow: hidden;
+  position: relative;
+}
+
+.comment-section{
+
+}
+
+/* =========== Comment Section ========== */
+.wrapper{
+  margin: 1rem 8rem;
+  /* overflow: hidden; */
+  /* width: 100%; */
+  /* display: flex; */
+}
+
+.author-comment{
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+}
+
+.author-photo{
+  flex-grow: 1;
+  border: 1px solid white;
+  /* width: 100%; */
+}
+
+.author-photo img{
+  width: 75px;
+}
+
+.author-content{
+  flex-grow: 8;
+  border: 1px solid white;
+
+}
+
+.video-wrapper{
+  width: 100%;
+  height: 100%;
 }
