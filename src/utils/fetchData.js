@@ -14,7 +14,7 @@ const FetchData = ({children, endpoint}) => {
         },
       })
       .then((res) => {
-        setDataNih(res.data.results);
+        setDataNih(res.data);
       })
       .catch((error) => {
         console.log(error);

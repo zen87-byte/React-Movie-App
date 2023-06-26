@@ -1,6 +1,6 @@
 import FetchData from "../utils/fetchData";
 import "../App.css";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../utils/fetchData";
 
@@ -9,8 +9,13 @@ const Corousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [datawoi, setDatawoi] = useState([]);
 
-    console.log(dataVideo)
+  useEffect(()=>{
+    if(Object.keys(dataVideo).length > 0){
+      setDatawoi(dataVideo.results)
+    }
+  }, [dataVideo]);
 
   const handleVisible = () =>{
     setIsVisible(true);
@@ -40,7 +45,7 @@ const Corousel = () => {
     <div onMouseEnter={handleHover} onMouseLeave={handleNotHover} className="carousel">
       <button className={`left-button-carousel ${isHovered? `hovered` : ""}`} onClick={handlePrevSlide}>&lt;</button>
       <div className={`poster-container ${isVisible? `visibleTrue` : ""}`}>
-        {dataVideo
+        {datawoi
           .slice(currentSlide, currentSlide + 6)
           .map((item, index) => (
             <div className="poster-item" key={index}>
@@ -58,7 +63,6 @@ const Corousel = () => {
 const Container = ({ category, endpoint}) =>{
     const [isHovered, setIsHovered] = useState(false);
 
-    
     return(
         <>        
             <div className="container">

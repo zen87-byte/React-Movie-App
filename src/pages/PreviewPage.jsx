@@ -6,13 +6,11 @@ import { Link } from "react-router-dom";
 import FetchData from "../utils/fetchData";
 import { DataContext } from "../utils/fetchData";
 import "../App.css";
-// import Corousel from "../components/Corousel";
 import CommentSection from "../components/CommentSection";
 import Container from "../components/Container";
 
 const MovieDetailPage = () => {
   const { id } = useParams();
-  const dataVideo = useContext(DataContext);
   const [videoPreview, setvideoPreview] = useState(null);
 
   useEffect(() => {
@@ -33,8 +31,6 @@ const MovieDetailPage = () => {
   if (!videoPreview) {
     return <div>Loading...</div>;
   }
-  console.log(videoPreview);
-  console.log("anjayyy", dataVideo);
   return (
     <>
       <Navbar />
@@ -71,7 +67,7 @@ const MovieDetailPage = () => {
             <div className="right"></div>
           </div>
         </div>
-        <Container category="Related" endpoint={`/movie/${id}/similar`}/>
+          {/* <Container category="Related" endpoint={`/movie/${id}/similar`}/> */}
         <div className="comment-section">
           <FetchData endpoint={`/movie/${id}/reviews`}>
             <CommentSection />
