@@ -67,7 +67,7 @@ const MovieDetailPage = () => {
             <div className="right"></div>
           </div>
         </div>
-          {/* <Container category="Related" endpoint={`/movie/${id}/similar`}/> */}
+          <Container category="Related" endpoint={`/movie/${id}/similar`}/>
         <div className="comment-section">
           <FetchData endpoint={`/movie/${id}/reviews`}>
             <CommentSection />

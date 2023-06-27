@@ -10,7 +10,7 @@ const Corousel = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [datawoi, setDatawoi] = useState([]);
-
+  
   useEffect(()=>{
     if(Object.keys(dataVideo).length > 0){
       setDatawoi(dataVideo.results)
@@ -22,11 +22,7 @@ const Corousel = () => {
   }
 
   const handleHover = () =>{
-    setIsHovered(true);
-  }
-
-  const handleNotHover = () =>{
-    setIsHovered(false);
+    setIsHovered(!isHovered);
   }
 
   const handleNextSlide = () => {
@@ -42,7 +38,7 @@ const Corousel = () => {
   };
 
   return (
-    <div onMouseEnter={handleHover} onMouseLeave={handleNotHover} className="carousel">
+    <div onMouseEnter={handleHover} onMouseLeave={handleHover} className="carousel">
       <button className={`left-button-carousel ${isHovered? `hovered` : ""}`} onClick={handlePrevSlide}>&lt;</button>
       <div className={`poster-container ${isVisible? `visibleTrue` : ""}`}>
         {datawoi
@@ -63,12 +59,16 @@ const Corousel = () => {
 const Container = ({ category, endpoint}) =>{
     const [isHovered, setIsHovered] = useState(false);
 
+    const handleHover = () =>{
+      setIsHovered(!isHovered);
+    }
+
     return(
         <>        
-            <div className="container">
+            <div className="container" onMouseEnter={handleHover} onMouseLeave={handleHover}>
                 <div className="top-container">
                     <h3>{category}</h3>
-                    <Link to={`/all/${category.toLowerCase()}`}><p>View All <i class="fa fa-angle-right" aria-hidden="true"></i></p></Link>
+                    <Link to={`/all/${category.toLowerCase()}`}><p className={`${isHovered? `hovered` : "view-all"}`}>View All <i class="fa fa-angle-right" aria-hidden="true"></i></p></Link>
                 </div>
                 <div className="item-container">
                     <FetchData endpoint={`${endpoint}`}>

@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 
 const AllPage = () =>{
-    const { id } = useParams();
-
+    const { category } = useParams();
+    console.log(category);
     return(
         <div className="wrapper">
-            <h1>{id}</h1>
+            <h1>{category}</h1>
             <p>ANJAAYYY</p>
         </div>
     )

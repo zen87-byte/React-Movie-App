@@ -1,3 +1,10 @@
+.wrapper{
+  margin: 1rem 8rem;
+  /* overflow: hidden; */
+  /* width: 100%; */
+  /* display: flex; */
+}
+
 /* Navbar */
 nav{
   /* background-color: var(--secondary-background); */
@@ -5,6 +12,7 @@ nav{
   justify-content: space-between;
   align-items: center;
   padding: .5rem 4rem;
+  margin-bottom: 1rem;
 }
 
 .logo img{
@@ -76,6 +84,9 @@ ul li:not(:last-child):hover{
   /* width: 100%; */
 }
 
+.container .view-all{
+  display: none;
+}
 
 /* Corousel */
 .carousel{
@@ -268,33 +279,110 @@ ul li:not(:last-child):hover{
 }
 
 /* =========== Comment Section ========== */
-.wrapper{
-  margin: 1rem 8rem;
-  /* overflow: hidden; */
-  /* width: 100%; */
-  /* display: flex; */
+.comment-section{
+  margin-top: 4rem;
+}
+
+.comment-section #post{
+  margin-top: .25rem;
+  border: none;
+  background-color: var(--secondary-color);
+  border-radius: .5rem;
+  padding: .5rem 1rem;
+  color: white;
+}
+
+.comment-section #post:hover{
+  cursor: pointer;
+  background-color: var(--primary-color);
+}
+
+.form-comment{
+  display: flex;
+}
+
+.form-comment img{
+  width: 75px;
+  height: 75px;
+  border-radius: 50% ;
+}
+form{
+  width: 100%;
+  align-self: center;
+  height: 100%;
+  margin: 0 1rem;
+}
+
+form textarea{
+  border-radius: 0.5rem;
+  padding: .5rem;
+  border: none;
+  resize: none;
+  appearance: none;
+    font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 100%;
+  height: 75px;
+}
+
+form button{
+  float: right;
 }
 
 .author-comment{
-  border: 1px solid white;
   display: flex;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .author-photo{
-  flex-grow: 1;
-  border: 1px solid white;
+  width: 75px;
+  /* align-self: center; */
   /* width: 100%; */
 }
 
 .author-photo img{
-  width: 75px;
+  /* width: 75px; */
+  border-radius: 50%;
+  width: 100%;
 }
 
 .author-content{
-  flex-grow: 8;
-  border: 1px solid white;
+  width: 100%;
+  padding: 0 1rem;
+}
 
+.author-content h4{
+  top: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.reaction{
+  margin: 0;
+  top: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.reaction #reply, #like{
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+.hidden-column{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: none;
 }
 
 .video-wrapper{
