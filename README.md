@@ -9,8 +9,8 @@ Movie Browse and Search: Users can browse through a collection of movies and per
 
 # Instructions for Running the App:
 
-1. Clone the repository: git clone https://github.com/your-username/movie-app.git
-2. Install dependencies: cd movie-app and npm install
+1. Clone this repository
+2. Change directory and install the dependency by running npm install
 3. Obtain an API key from the TMDB website: [TMDB API](https://www.themoviedb.org/settings/api)
 4. Open .env file and add your api key into REACT_APP_API_KEY=[your-api-key]
 Start the development server: npm start
