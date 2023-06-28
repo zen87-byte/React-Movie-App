@@ -3,17 +3,18 @@ import "../App.css";
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../utils/fetchData";
+import Loading from "./Loading/Loading";
 
 const Corousel = () => {
   const dataVideo = useContext(DataContext);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [datawoi, setDatawoi] = useState([]);
+  const [dataContainer, setDataContainer] = useState([]);
   
   useEffect(()=>{
     if(Object.keys(dataVideo).length > 0){
-      setDatawoi(dataVideo.results)
+      setDataContainer(dataVideo.results)
     }
   }, [dataVideo]);
 
@@ -27,24 +28,28 @@ const Corousel = () => {
 
   const handleNextSlide = () => {
     setCurrentSlide((prevSlide) =>
-      prevSlide === dataVideo.length - 6 ? 0 : prevSlide + 1
+      prevSlide === dataContainer.length - 6 ? 0 : prevSlide + 1
     );
   };
 
   const handlePrevSlide = () => {
     setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? dataVideo.length - 6 : prevSlide - 1
+      prevSlide === 0 ? dataContainer.length - 6 : prevSlide - 1
     );
   };
+
+  if (!dataContainer) {
+    return <Loading/>;
+  }
 
   return (
     <div onMouseEnter={handleHover} onMouseLeave={handleHover} className="carousel">
       <button className={`left-button-carousel ${isHovered? `hovered` : ""}`} onClick={handlePrevSlide}>&lt;</button>
-      <div className={`poster-container ${isVisible? `visibleTrue` : ""}`}>
-        {datawoi
+      <div className="poster-container">
+        {dataContainer
           .slice(currentSlide, currentSlide + 6)
           .map((item, index) => (
-            <div className="poster-item" key={index}>
+            <div className={`poster-item ${isVisible? `visibleTrue` : ""}`} key={index}>
               <Link to={`/video/${item.id}`}>
                 <img onLoad={handleVisible} src={`${process.env.REACT_APP_POSTER_PATH}${item.poster_path}`} alt={`${item.title}`} />
               </Link>

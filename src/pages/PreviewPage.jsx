@@ -8,6 +8,7 @@ import { DataContext } from "../utils/fetchData";
 import "../App.css";
 import CommentSection from "../components/CommentSection";
 import Container from "../components/Container";
+import Loading from "../components/Loading/Loading";
 
 const MovieDetailPage = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const MovieDetailPage = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/movie/${id}`, {
+      .get(`${process.env.REACT_APP_BASE_URL}/movie/${id}` || `${process.env.REACT_APP_BASE_URL}/tv/${id}`, {
         params: {
           api_key: process.env.REACT_APP_API_KEY,
         },
@@ -29,8 +30,9 @@ const MovieDetailPage = () => {
   }, [id]);
 
   if (!videoPreview) {
-    return <div>Loading...</div>;
+    return <Loading/>;
   }
+  
   return (
     <>
       <Navbar />

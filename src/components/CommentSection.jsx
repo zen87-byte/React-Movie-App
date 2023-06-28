@@ -2,21 +2,15 @@ import React, { useContext, useState, useEffect } from "react";
 import { DataContext } from "../utils/fetchData";
 import avatar_path from "../images/avatar_path.jpeg";
 
-
 const CommentSection = () => {
   const reviews = useContext(DataContext);
   const [dataReviews, setDataReviews] = useState([]);
   const [avatarPath, setAvatarPath] = useState([]);
-  const [comment, setComment] = useState();
-    const [like, setLike] = useState(false);
+  const [like, setLike] = useState(false);
 
-    const handleLike = () =>{
-        setLike(!like)
-    }
-  const handleComment = (event) => {
-    setComment(event.target.value);
+  const handleLike = () => {
+    setLike(!like);
   };
-
   useEffect(() => {
     if (Object.keys(reviews).length > 0) {
       setDataReviews(reviews.results);
@@ -42,11 +36,7 @@ const CommentSection = () => {
       <div id="form-comment" className="form-comment">
         <img src={avatar_path} alt="" />
         <form action="">
-          <textarea
-            placeholder="Write here..."
-            value={comment}
-            onChange={handleComment}
-          />
+          <textarea placeholder="Write here..." />
           <button id="post">Post</button>
         </form>
       </div>
@@ -62,9 +52,7 @@ const CommentSection = () => {
           <div className="author-content">
             <div className="detail">
               <h4>{`${item.author}`}</h4>
-              <span style={{ fontSize: "12px", opacity: "0.7" }}>
-                8 day ago
-              </span>
+              <span>8 day ago</span>
             </div>
             <p>{`${item.content}`}</p>
             <div className="reaction">

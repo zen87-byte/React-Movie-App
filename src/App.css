@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
   margin: 1rem 8rem;
   /* overflow: hidden; */
   /* width: 100%; */
@@ -6,47 +6,47 @@
 }
 
 /* Navbar */
-nav{
+nav {
   /* background-color: var(--secondary-background); */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .5rem 4rem;
+  padding: 0.5rem 4rem;
   margin-bottom: 1rem;
 }
 
-.logo img{
+.logo img {
   width: 200px;
 }
 
-ul{
+ul {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   font-weight: 700;
 }
 
-ul li:not(:last-child):hover{
+ul li:not(:last-child):hover {
   cursor: pointer;
   color: var(--secondary-color);
   opacity: 0.7;
 }
 
-.searchBar{
+.searchBar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
-.searchBar i:hover{
+.searchBar i:hover {
   cursor: pointer;
   opacity: 0.7;
 }
 
-.searchBar [type="text"]{
-   border: none;
-  padding:  0.25rem;
+.searchBar [type="text"] {
+  border: none;
+  padding: 0.25rem;
   font-size: 0.75rem;
   width: 100%;
   border-radius: 1rem;
@@ -68,15 +68,15 @@ ul li:not(:last-child):hover{
   border-left-width: 5px;
 }
 
-.top-container h3{
+.top-container h3 {
   font-size: 1.5rem;
 }
 
-.container a{
+.container a {
   color: white;
 }
 
-.container a:hover{
+.container a:hover {
   opacity: 0.7;
 }
 
@@ -84,22 +84,22 @@ ul li:not(:last-child):hover{
   /* width: 100%; */
 }
 
-.container .view-all{
+.container .view-all {
   display: none;
 }
 
 /* Corousel */
-.carousel{
+.carousel {
   display: flex;
   align-items: center;
   justify-content: space-between;
   /* position: relative; */
 }
 
-.left-button-carousel{
+.left-button-carousel {
   display: none;
   border: none;
-  background:transparent;
+  background: transparent;
   height: 200px;
   position: absolute;
   left: 0;
@@ -110,10 +110,10 @@ ul li:not(:last-child):hover{
   /* float: right; */
 }
 
-.right-button-carousel{
+.right-button-carousel {
   display: none;
   border: none;
-  background:transparent;
+  background: transparent;
   height: 200px;
   position: absolute;
   right: 0;
@@ -123,15 +123,15 @@ ul li:not(:last-child):hover{
   cursor: pointer;
   /* float: right; */
 }
-.right-button-carousel:hover{
+.right-button-carousel:hover {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.hovered{
+.hovered {
   display: block;
 }
 
-.poster-container{
+.poster-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -145,34 +145,69 @@ ul li:not(:last-child):hover{
   transition: opacity 1s ease-in, transform 1s ease-in;
 }
 
-.poster-item{
+.poster-item {
   width: 225px;
   border-radius: 1rem;
   overflow: hidden;
   transition: 0.25s;
 }
 
-.poster-container img{
+.poster-container img {
   width: 100%;
   aspect-ratio: 2/3;
   /* transform: scale(0.8); */
 }
 
-.poster-container.visibleTrue{
+.poster-container.visibleTrue {
   opacity: 1;
   /* transform: scale(1); */
 }
 
-.poster-container img:hover{
+.poster-container img:hover {
   transform: scale(1.2);
   opacity: 0.5;
   transition: 0.25s;
   overflow: hidden;
 }
 
+/* ========== All Page ==========*/
+.wrapper > h1 {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.all-poster {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.all-poster-item {
+  width: 225px;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: 0.25s;
+}
+
+.all-poster-item img:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  opacity: 0.5;
+  transition: 0.25s;
+  overflow: hidden;
+}
+
+.all-poster img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+}
+
 /* Video Preview Page*/
 
-.wrapper-preview{
+.wrapper-preview {
   /* border: 1px solid white; */
   /* opacity: 0; */
   transition: opacity 0.5s ease-in;
@@ -182,50 +217,50 @@ ul li:not(:last-child):hover{
   margin: 2rem 0;
 }
 
-.backdrop-preview{
+.backdrop-preview {
   /* border: 1px solid white; */
   width: 50%;
 }
 
-.backdrop-preview>img{
+.backdrop-preview > img {
   width: 100%;
   aspect-ratio: 5/3;
 }
 
-.video-preview{
+.video-preview {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width:50%;
+  width: 50%;
   max-width: 40%;
 }
 
-.title-preview{
+.title-preview {
   display: flex;
   flex-direction: column;
   font-size: 70px;
   font-weight: var(--font-weight);
 }
 
-.genre{
+.genre {
   display: flex;
   gap: 1rem;
   font-size: 0.75rem;
   /* opacity: 0.8; */
 }
 
-.genre h3{
+.genre h3 {
   background-color: var(--third-color);
   padding: 0.25rem 0.5rem;
   border-radius: 0.75rem;
 }
 
-.genre h3:hover{
+.genre h3:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
-.detail-preview{
+.detail-preview {
   font-size: 1rem;
   font-weight: 500;
   display: flex;
@@ -235,102 +270,101 @@ ul li:not(:last-child):hover{
   width: fit-content;
 }
 
-.detail-preview p:nth-last-child(1){
+.detail-preview p:nth-last-child(1) {
   background-color: gray;
   padding: 0.2rem 0.15rem;
   border-radius: 0.5rem;
   opacity: 0.8;
 }
 
-.rating{
+.rating {
   color: yellow;
 }
 
-.sinopsis-preview{
+.sinopsis-preview {
   opacity: 0.6;
   font-size: 1.5rem;
 }
 
-.button-preview{
+.button-preview {
   text-align: center;
   width: 50%;
   border: none;
   border-radius: 1rem;
-  padding: .75rem;
+  padding: 0.75rem;
   background-color: var(--secondary-color);
   color: white;
   font-weight: 700;
 }
 
-.button-preview:hover{
+.button-preview:hover {
   cursor: pointer;
   background-color: var(--primary-color);
 }
 
-.similar{
+.similar {
   /* width: 100%; */
   /* margin: 1rem 6rem; */
   overflow: hidden;
   position: relative;
 }
 
-.comment-section{
-
+.comment-section {
 }
 
 /* =========== Comment Section ========== */
-.comment-section{
+.comment-section {
   margin-top: 4rem;
 }
 
-.comment-section #post{
-  margin-top: .25rem;
+.comment-section #post {
+  margin-top: 0.25rem;
   border: none;
   background-color: var(--secondary-color);
-  border-radius: .5rem;
-  padding: .5rem 1rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
   color: white;
 }
 
-.comment-section #post:hover{
+.comment-section #post:hover {
   cursor: pointer;
   background-color: var(--primary-color);
 }
 
-.form-comment{
+.form-comment {
   display: flex;
 }
 
-.form-comment img{
+.form-comment img {
   width: 75px;
   height: 75px;
-  border-radius: 50% ;
+  border-radius: 50%;
 }
-form{
+form {
   width: 100%;
   align-self: center;
   height: 100%;
   margin: 0 1rem;
 }
 
-form textarea{
+form textarea {
   border-radius: 0.5rem;
-  padding: .5rem;
+  padding: 0.5rem;
   border: none;
   resize: none;
   appearance: none;
-    font-family: inherit;
+  font-family: inherit;
   font-size: inherit;
   line-height: inherit;
   width: 100%;
   height: 75px;
 }
 
-form button{
+form button {
   float: right;
 }
 
-.author-comment{
+.author-comment {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -339,37 +373,43 @@ form button{
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-.author-photo{
+.author-photo {
   width: 75px;
   /* align-self: center; */
   /* width: 100%; */
 }
 
-.author-photo img{
+.author-photo img {
   /* width: 75px; */
   border-radius: 50%;
   width: 100%;
 }
 
-.author-content{
+.author-content {
   width: 100%;
   padding: 0 1rem;
 }
 
-.author-content h4{
+.author-content h4 {
   top: 0;
   padding: 0;
   margin: 0;
 }
 
-.reaction{
+.author-content span {
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.reaction {
   margin: 0;
   top: 0;
   display: flex;
   gap: 1rem;
 }
 
-.reaction #reply, #like{
+.reaction #reply,
+#like {
   position: relative;
   cursor: pointer;
   border: none;
@@ -377,15 +417,33 @@ form button{
   color: white;
 }
 
-.hidden-column{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: none;
-}
-
-.video-wrapper{
+.video-wrapper {
   width: 100%;
   height: 100%;
+}
+
+/* Perangkat Mobile */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+  .wrapper {
+    margin: 1rem;
+  }
+  nav {
+  }
+  nav .menu {
+    display: none;
+  }
+
+  .logo img {
+    width: 50%;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-size: 16px;
+  }
 }
