@@ -5,10 +5,7 @@ This repository contains a movie app built with React.js that utilizes the TMDB 
 
 React.js: The app is built using the React.js library, providing a modular and efficient component-based architecture.
 TMDB API Integration: The app seamlessly integrates with the TMDB API to fetch movie data, including movie information, posters, ratings, and more.
-Movie Browse and Search: Users can browse through a collection of movies and perform searches to find specific movies by title, genre, or any other relevant criteria.
-Movie Details: Detailed information about each movie is displayed, including the synopsis, release date, cast, and crew.
-Popular Movies: Users can explore popular movies based on ratings, trending movies, and recently released movies.
-Responsive Design: The app is designed to be responsive and user-friendly on different devices and screen sizes.
+Movie Browse and Search: Users can browse through a collection of movies and perform searches to find specific movies
 
 # Instructions for Running the App:
 
