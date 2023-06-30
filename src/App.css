@@ -1,5 +1,5 @@
 .wrapper {
-  margin: 1rem 8rem;
+  margin: 1rem 6rem;
   /* overflow: hidden; */
   /* width: 100%; */
   /* display: flex; */
@@ -37,6 +37,11 @@ ul li:not(:last-child):hover {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+}
+
+.searchBar button{
+  border: none;
+  appearance: none;
 }
 
 .searchBar i:hover {
@@ -106,7 +111,6 @@ ul li:not(:last-child):hover {
   color: white;
   font-weight: 800;
   font-size: 3rem;
-  cursor: pointer;
   /* float: right; */
 }
 
@@ -120,8 +124,6 @@ ul li:not(:last-child):hover {
   color: white;
   font-weight: 800;
   font-size: 3rem;
-  cursor: pointer;
-  /* float: right; */
 }
 .right-button-carousel:hover {
   background-color: rgba(0, 0, 0, 0.5);
@@ -177,6 +179,7 @@ ul li:not(:last-child):hover {
 }
 
 .all-poster {
+  /* border: 1px solid white; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -190,6 +193,7 @@ ul li:not(:last-child):hover {
   overflow: hidden;
   transition: 0.25s;
 }
+
 
 .all-poster-item img:hover {
   cursor: pointer;
@@ -208,8 +212,6 @@ ul li:not(:last-child):hover {
 /* Video Preview Page*/
 
 .wrapper-preview {
-  /* border: 1px solid white; */
-  /* opacity: 0; */
   transition: opacity 0.5s ease-in;
   display: flex;
   justify-content: space-between;
@@ -298,7 +300,6 @@ ul li:not(:last-child):hover {
 }
 
 .button-preview:hover {
-  cursor: pointer;
   background-color: var(--primary-color);
 }
 
@@ -327,7 +328,6 @@ ul li:not(:last-child):hover {
 }
 
 .comment-section #post:hover {
-  cursor: pointer;
   background-color: var(--primary-color);
 }
 
@@ -411,7 +411,6 @@ form button {
 .reaction #reply,
 #like {
   position: relative;
-  cursor: pointer;
   border: none;
   background-color: transparent;
   color: white;
@@ -420,6 +419,10 @@ form button {
 .video-wrapper {
   width: 100%;
   height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Perangkat Mobile */
@@ -428,9 +431,10 @@ form button {
     font-size: 14px;
   }
   .wrapper {
-    margin: 1rem;
+    margin: 2rem;
   }
   nav {
+    padding: 0.5rem 2rem;
   }
   nav .menu {
     display: none;
@@ -439,11 +443,43 @@ form button {
   .logo img {
     width: 50%;
   }
+  .all-poster{
+    gap: 1rem;
+  }
+  .all-poster-item{
+    width: 25%;
+  }
+
+  .wrapper-preview{
+    flex-direction: column-reverse;
+  }
+  .video-preview{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .backdrop-preview{
+    width: 100%;
+  }
+
+  .genre{
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
 }
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 1023px) {
   body {
     font-size: 16px;
+  }
+  nav {
+    padding: 0.5rem 2rem;
+  }
+  .wrapper{
+    margin: 3rem;
+  }
+
+  .wrapper-preview{
   }
 }

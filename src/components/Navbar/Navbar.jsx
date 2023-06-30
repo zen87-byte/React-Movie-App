@@ -1,7 +1,8 @@
 import React from "react";
-import logoImage from "../images/Screenshot_2023-06-23_at_17.11.19-removebg-preview.png";
-import "../App.css"
+import logoImage from "../../images/Screenshot_2023-06-23_at_17.11.19-removebg-preview.png";
+import "../../App.css"
 import { Outlet, Link } from "react-router-dom";
+import SearchBar from "./Search";
 
 const Navbar = () =>{
     return(
@@ -17,9 +18,7 @@ const Navbar = () =>{
                     <li>Series</li>
                     <li>Genre</li>
                     <li>Year</li>
-                    <li className="searchBar">
-                        <i class="fa fa-search" aria-hidden="true"></i> <input type="text" placeholder="Search..."/>
-                    </li>
+                    <li><SearchBar/></li>
                 </ul>
             </div>
         </nav>

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import { useContext, useState, useEffect } from "react";
 import FetchData, { DataContext } from "../utils/fetchData";
 import "/node_modules/video-react/dist/video-react.css";

@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import { Link } from "react-router-dom";
 import FetchData from "../utils/fetchData";
 import { DataContext } from "../utils/fetchData";
@@ -11,6 +11,10 @@ import Container from "../components/Container";
 import Loading from "../components/Loading/Loading";
 
 const MovieDetailPage = () => {
+  const location = useLocation();
+  const search = new URLSearchParams(location.search);
+  const query  = search.get('search');
+  console.log("query nih bang", query);
   const { id } = useParams();
   const [videoPreview, setvideoPreview] = useState(null);
 

@@ -67,7 +67,7 @@ const Container = ({ category, endpoint}) =>{
     const handleHover = () =>{
       setIsHovered(!isHovered);
     }
-
+    console.log(category)
     return(
         <>        
             <div className="container" onMouseEnter={handleHover} onMouseLeave={handleHover}>

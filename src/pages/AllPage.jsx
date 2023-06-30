@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FetchData, { DataContext } from "../utils/fetchData";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import { Link } from "react-router-dom";
+import {useNavigate} from 'react-router-dom'
 
 const Card = () => {
   const data = useContext(DataContext);
@@ -28,13 +29,19 @@ const Card = () => {
 };
 
 const AllPage = () => {
+  const navigateBack = useNavigate();
   const { category } = useParams();
-  console.log(category);
+
+  const goBack = () =>{
+    navigateBack(-1);
+  }
+  console.log("anjayy",category);
   return (
     <>
       <Navbar />
       <div className="wrapper">
         <h1>{category.toUpperCase()}</h1>
+        <button onClick={goBack}><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</button>
         <FetchData endpoint={`/movie/${category}`}>
           <Card />
         </FetchData>

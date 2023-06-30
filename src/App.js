@@ -13,6 +13,7 @@ const App = () => {
           <Route path="/video/:id" Component={VideoPreview}/>
           <Route path="/video/:id/play" Component={VideoPage}/>
           <Route path="/all/:category" Component={AllPage}/>
+          <Route exact path="/query" Component={VideoPreview}/>
         </Routes>
       </BrowserRouter>
     </>
